@@ -30,19 +30,20 @@
     </div>
 </nav>
 
-<div class="container mt-3"></div>
+<div class="container mt-3">
 <h1>{{ title }}</h1>
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-8">
         {% for item in news %}
         <div class="card mb-3">
-            {% if item.photo %}
-            <img src="item.photo.url" class="card-img-top" alt="news_image">
-            {% endif %}
-            <div class="card-header">
+        <div class="card-header">
                 Kategoriya: {{ item.category }}
             </div>
-            <h3>{{item.myFunc}}</h3>
+            {% if item.photo %}
+            <img src={{item.photo.url}} alt="news_image" width="180" height="240">
+            {% endif %}
+
+            <h5>{{item.myFunc}}</h5>
             <div class="card-body">
                 <h5 class="card-title">{{ item.title }}</h5>
 
@@ -55,6 +56,10 @@
         </div>
         {% endfor %}
     </div>
+    <div class="col-md-4">
+
+    </div>
+</div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
