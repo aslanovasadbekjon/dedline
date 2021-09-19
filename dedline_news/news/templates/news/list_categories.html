@@ -1,0 +1,13 @@
+
+
+<div class="col-md-12">
+        <div class="list-group">
+          <a href="{% url 'home' %}" class="list-group-item list-group-item-action active" aria-current="true">
+            Kategoriyalar
+          </a>
+
+            {% for item in categories %}
+          <a href="{{ item.get_absolute_url }}" class="list-group-item list-group-item-action">{{item.title}}</a>
+            {% endfor %}
+        </div>
+    </div>

@@ -13,8 +13,12 @@
 
 <div class="container mt-3">
 <div class="row">
-    {% block content %}CONTENT {% endblock %}
-    {% block sidebar %} SIDEBAR {% endblock %}
+    <div class="col-md-8">
+          {% block content %}CONTENT {% endblock %}
+    </div>
+    <div class="col-md-4">
+        {% block sidebar %} SIDEBAR {% endblock %}
+    </div>
 </div>
 </div>
 

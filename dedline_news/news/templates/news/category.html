@@ -29,15 +29,6 @@
     </div>
 {% endblock %}
 {% block sidebar %}
-    <div class="col-md-4">
-        <div class="list-group">
-          <a href="{% url 'home' %}" class="list-group-item list-group-item-action active" aria-current="true">
-            Kategoriyalar
-          </a>
-            {% for item in categories %}
-          <a href="{% url 'category' item.pk %}" class="list-group-item list-group-item-action">{{item.title}}</a>
-            {% endfor %}
-        </div>
-    </div>
+   {% include 'inc/_sidebar.html' %}
 {% endblock %}
 

@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 class News(models.Model):
     title = models.CharField(max_length=150, verbose_name='Sarlavhasi')
@@ -31,3 +32,6 @@ class Category(models.Model):
     class Meta:
         verbose_name = "Kategoriya"
         verbose_name_plural = "Kategoriyalar"
+
+    def get_absolute_url(self):
+        return reverse('category',kwargs={"category_id":self.pk})
