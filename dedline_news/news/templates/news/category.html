@@ -4,7 +4,7 @@
 {% endblock %}
 
 {% block content %}
-    <div class="col-md-8">
+    <div class="col-md-12">
         {% for item in news %}
         <div class="card mb-3">
         <div class="card-header">
@@ -19,7 +19,7 @@
                 <h5 class="card-title">{{ item.title }}</h5>
 
                 <p class="card-text">{{ item.content }}</p>
-                <a href="#" class="btn btn-primary">Read more ...</a>
+                <a href="{{ item.get_absolute_url }}" class="btn btn-primary">Read more ...</a>
             </div>
             <div class="card-footer text-muted">
                 {{ item.created_at|date:"d-m-Y H:i"}}
