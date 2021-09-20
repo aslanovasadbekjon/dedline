@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}
+Yangilik qo`shish::{{block.super}}
+{% endblock %}
+
+
+{% block content %}
+<h2>Yangilik qo`shish</h2>
+<form action="{% url 'add_news' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary btn-block"> Yangilik qo`shish</button>
+</form>
+{% endblock %}
+{% block sidebar %}
+   {% include 'inc/_sidebar.html' %}
+{% endblock %}
