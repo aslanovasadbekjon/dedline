@@ -1,5 +1,7 @@
 from django import forms
 from .models import Category,News
+import re
+from django.core.exceptions import ValidationError
 
 class NewsForm(forms.ModelForm):
     class Meta:
@@ -17,3 +19,8 @@ class NewsForm(forms.ModelForm):
     # content = forms.CharField(label="Yangilik matni",required=False,widget=forms.Textarea(attrs={"class":"form-control","rows":5}))
     # is_published = forms.BooleanField(label="Chop qilinganligi",initial=True)
     # category = forms.ModelChoiceField(label="Kategoriya",empty_label='Kategoriyani tanlang',queryset=Category.objects.all(),widget=forms.Select(attrs={"class":"form-control"}))
+    def clean_title(self):
+        title = self.cleaned_data['title']
+        if re.match(r'\d',title):
+            raise ValidationError("Sarlavha raqam bilan boshlanmaydi")
+        return title
