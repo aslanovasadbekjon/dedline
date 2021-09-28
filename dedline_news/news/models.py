@@ -11,6 +11,8 @@ class News(models.Model):
 
     category = models.ForeignKey('Category',on_delete=models.PROTECT)
 
+    views = models.IntegerField()
+
     def __str__(self):
         return self.title
 
