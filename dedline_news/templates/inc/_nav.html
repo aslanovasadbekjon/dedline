@@ -1,3 +1,4 @@
+<div class="navbar_yoni">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'home' %}">Navbar</a>
@@ -11,10 +12,14 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'home' %}">Bosh menyu</a>
                 </li>
+
+                {% if request.user.is_authenticated %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'add_news' %}">Yangilik qo'shish</a>
                 </li>
+                {% endif %}
             </ul>
         </div>
     </div>
 </nav>
+</div>
