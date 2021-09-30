@@ -9,8 +9,8 @@ class NewsAdmin(admin.ModelAdmin):
     list_editable = ('is_published',)
     list_filter = ('is_published','category')
 
-    fields = ('title','content','created_at','updated_at','category','rasmni_olish','is_published','views')
-    readonly_fields = ('rasmni_olish','created_at','updated_at','views')
+    fields = ('title','content','created_at','updated_at','category','photo','rasmni_olish','is_published','views')
+    readonly_fields = ('rasmni_olish','created_at','updated_at')
 
     def rasmni_olish(self,obj):
         if obj.photo:

@@ -3,6 +3,7 @@ from .models import News, Category
 from .forms import NewsForm
 from django.views.generic import ListView, DetailView, CreateView
 from .utils import MyMixin
+from django.core.paginator import Paginator
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 #def index(request):
@@ -54,6 +55,7 @@ class BoshNews(MyMixin,ListView):
     context_object_name = 'news'
     #extra_context = {'title':'Bosh sahifa'}
     mixin_prop = "Hello world"
+    paginate_by = 2
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -70,6 +72,7 @@ class NewsByCategory(MyMixin,ListView):
     template_name = 'news/home_page.html'
     context_object_name = 'news'
     allow_empty = False
+    paginate_by = 2
 
     def get_queryset(self):
         return News.objects.filter(category_id=self.kwargs['category_id'],is_published=True)
@@ -92,3 +95,11 @@ class AddNews(CreateView):
     #login_url = '/admin/'
     #login_url = reverse_lazy('home')
     raise_exeptions = True
+
+
+def test(request):
+    objects = ['a1','a2','a3','a4','a5','a6','a7']
+    paginator = Paginator(objects,2)
+    page_num = request.GET.get('page',1)
+    page_objects = paginator.get_page(page_num)
+    return render(request,'news/test.html',{'page_obj':page_objects})
