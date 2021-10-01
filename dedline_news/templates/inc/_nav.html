@@ -18,7 +18,18 @@
                     <a class="nav-link" href="{% url 'add_news' %}">Yangilik qo'shish</a>
                 </li>
                 {% endif %}
+
             </ul>
+
+            {% if request.user.is_authenticated %}
+            Xush kelibsiz! {{ user.username }}
+            | <a href="{% url 'logout' %}"> Chiqish</a>
+            {% else %}
+            <span class="navbar-text">
+                <a href="{% url 'register' %}">Ro`yxatdan o`tish</a> |
+                <a href="{% url 'login' %}"> Kirish</a>
+            </span>
+            {% endif %}
         </div>
     </div>
 </nav>

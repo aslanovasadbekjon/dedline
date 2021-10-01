@@ -48,7 +48,23 @@
                   </ul>
                 </nav>
             {% endif %}
+
+        {% if messages %}
+            {% for message in messages %}
+                {% if message.tags == 'error' %}
+                <div class="alert alert-danger" role="alert">
+                    {{ message }}
+                </div>
+                {% else %}
+                 <div class="alert alert-{{ message.tags }}" role="alert">
+                    {{ message }}
+                </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
     </div>
+
     <div class="col-md-4">
         {% block sidebar %} SIDEBAR {% endblock %}
     </div>
