@@ -1,6 +1,7 @@
 from django.shortcuts import render,get_object_or_404,redirect
 from .models import News, Category
-from .forms import NewsForm, UserRegisterForm,UserLoginForm
+from .forms import NewsForm, UserRegisterForm,UserLoginForm, ContactForm
+from django.core.mail import send_mail
 from django.contrib.auth import login, logout
 from django.views.generic import ListView, DetailView, CreateView
 from .utils import MyMixin
@@ -135,3 +136,19 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     return redirect('login')
+
+
+def mail_send(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            mail = send_mail(form.cleaned_data['subject'],form.cleaned_data['content'],
+                             '', ['aslanovasadbekjon@gmail.com'], fail_silently=False)
+            if mail:
+                messages.success(request,"Xabar yuborildi!")
+                return redirect('mail')
+            else:
+                messages.error(request,'Yuborishda xatolik!')
+    else:
+        form = ContactForm()
+    return render(request,'news/mail.html',{'form':form})

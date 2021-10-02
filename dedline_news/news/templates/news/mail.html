@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}
+Biz bilan aloqa::{{block.super}}
+{% endblock %}
+
+
+{% block content %}
+        <h1>Biz bilan aloqa</h1>
+        <form method="post">
+        {% csrf_token  %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary btn-block">Yuborish</button>
+        </form>
+{% endblock %}
+
+{% block sidebar %}
+   {% include 'inc/_sidebar.html' %}
+{% endblock %}

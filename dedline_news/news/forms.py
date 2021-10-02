@@ -42,3 +42,7 @@ class UserRegisterForm(UserCreationForm):
 class UserLoginForm(AuthenticationForm):
     username = forms.CharField(label="Foydalanuvchi nomi", widget=forms.TextInput(attrs={'class':'form-control', 'autocomplate':'off'}))
     password = forms.CharField(label="Parol",widget=forms.PasswordInput(attrs={'class':'form-control','autocomplate':'off'}))
+
+class ContactForm(forms.Form):
+    subject = forms.CharField(label="Mavzu", widget=forms.TextInput(attrs={'class':'form-control'}))
+    content = forms.CharField(label="Matn", widget=forms.Textarea(attrs={'class':'form-control','rows':5}))

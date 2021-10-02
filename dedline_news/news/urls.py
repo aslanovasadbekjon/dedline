@@ -10,9 +10,10 @@ urlpatterns = [
     #path('news/add_news/', add_news, name="add_news"),
     path('news/add_news/', AddNews.as_view(), name="add_news"),
 
-    path('test/',test,name = 'test'),
-    path('register/',register, name = 'register'),
-    path('login/',user_login, name = 'login'),
-    path('logout/',user_logout, name = 'logout'),
+    path('test/',test,name='test'),
+    path('register/',register, name='register'),
+    path('login/',user_login, name='login'),
+    path('logout/',user_logout, name='logout'),
+    path('mail/',mail_send, name='mail'),
 
 ]
