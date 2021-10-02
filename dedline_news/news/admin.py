@@ -1,8 +1,19 @@
 from django.contrib import admin
 from .models import News,Category
 from django.utils.safestring import mark_safe
+from django import forms
+from ckeditor_uploader.widgets import CKEditorUploadingWidget
+
+class NewsAdminForm(forms.ModelForm):
+    content = forms.CharField(widget=CKEditorUploadingWidget())
+
+    class Meta:
+        model = News
+        fields = '__all__'
+
 
 class NewsAdmin(admin.ModelAdmin):
+    form = NewsAdminForm
     list_display = ('id','title','content','created_at','updated_at','category','rasmni_olish','is_published')
     list_display_links = ('id','title',)
     search_fields = ('id','title')
@@ -25,3 +36,4 @@ admin.site.register(Category)
 
 admin.site.site_title = 'Sayt adminstratsiyasi'
 admin.site.site_header = 'Sayt adminstratsiyasi'
+

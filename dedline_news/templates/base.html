@@ -12,7 +12,7 @@
 </head>
 <body>
 {% include 'inc/_nav.html ' %}
-
+{% autoescape off %}
 <div class="container mt-3">
 <div class="row">
     <div class="col-md-8">
@@ -74,6 +74,6 @@
 <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"
         integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
         crossorigin="anonymous"></script>
-
+{% endautoescape %}
 </body>
 </html>

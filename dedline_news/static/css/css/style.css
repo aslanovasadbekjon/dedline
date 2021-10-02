@@ -1,0 +1,10 @@
+body{
+background-color: #ccc;
+}
+.errorlist{
+    color: red;
+}
+.navbar_yoni{
+    padding-right: .15rem;
+    padding-left: .15rem;
+}
