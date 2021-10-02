@@ -149,6 +149,9 @@ def mail_send(request):
                 return redirect('mail')
             else:
                 messages.error(request,'Yuborishda xatolik!')
+
+        else:
+            messages.error(request,"Ma`lumot noto`g`ri kiritilgan")
     else:
         form = ContactForm()
     return render(request,'news/mail.html',{'form':form})

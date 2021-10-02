@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'ckeditor',
     'ckeditor_uploader',
+    'captcha',
     'news',
 
 ]
@@ -140,13 +141,13 @@ INTERNAL_IPS = ['127.0.0.1']
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST='smtp.gmail.com'
-EMAIL_PORT=587
-EMAIL_HOST_USER="aslanovasadbekjon@gmail.com"
-EMAIL_HOST_PASSWORD='joker3141592654'
-EMAIL_USE_TLS=True
-EMAIL_USE_SSL=False
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "aslanovasadbekjon@gmail.com"
+EMAIL_HOST_PASSWORD = 'joker3141592654'
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
@@ -214,3 +215,7 @@ CKEDITOR_CONFIGS = {
         ]),
     }
 }
+
+CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.math_challenge'
+CAPTCHA_LETTER_ROTATION = None
+CAPTCHA_NOISE_FUNCTIONS = None
