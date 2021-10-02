@@ -5,10 +5,14 @@ Testlash sahifasi::{{block.super}}
 
 
 {% block content %}
+
 {% for name in page_obj.object_list %}
 <p>{{ name }}</p>
 {% endfor %}
+
 {% endblock %}
+
+
 {% block sidebar %}
    {% include 'inc/_sidebar.html' %}
 {% endblock %}
